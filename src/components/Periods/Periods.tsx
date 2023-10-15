@@ -13,7 +13,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 export const Periods = () => {
   return (
     <div>
-      <div className="home__navigation">
+      <div className="periods__navigation">
         <div className="swiper-custom-pagination"></div>
         <div className="home__navigation-buttons">
           <div className="swiper-button image-swiper-button-prev">
