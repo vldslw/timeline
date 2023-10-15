@@ -1,12 +1,32 @@
 import "./Events.scss";
+import { useState, useEffect } from "react";
 import { EventCard } from "../EventCard/EventCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "swiper/css";
 import "swiper/css/navigation";
+import { eventsList } from "../../utils/eventsList";
 
-export const Events = () => {
+type Props = {
+  startDate: number;
+  endDate: number;
+};
+
+export const Events = ({ startDate, endDate }: Props) => {
+  const [sortedEvents, setSortedEvents] = useState([]);
+
+  useEffect(() => {
+    const events: any = [];
+    eventsList.filter((event) => {
+      if (event.date >= startDate && event.date <= endDate) {
+        events.push(event);
+      }
+    });
+    console.log(events);
+    setSortedEvents(events);
+  }, []);
+
   return (
     <div className="events">
       <div className="event-swiper-button event-image-swiper-button-next">
@@ -25,18 +45,11 @@ export const Events = () => {
         }}
         modules={[Navigation]}
       >
-        <SwiperSlide>
-          <EventCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <EventCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <EventCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <EventCard />
-        </SwiperSlide>
+        {sortedEvents.map((event: any) => (
+          <SwiperSlide>
+            <EventCard date={event.date} desc={event.desc} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

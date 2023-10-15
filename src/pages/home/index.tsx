@@ -40,10 +40,13 @@ export const Home = () => {
         className="home-swiper"
       >
         <SwiperSlide>
-          <Period startDate={2000} endDate={2007} />
+          <Period startDate={1987} endDate={1991} />
         </SwiperSlide>
         <SwiperSlide>
-          <Period startDate={2008} endDate={2014} />
+          <Period startDate={1992} endDate={1997} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Period startDate={1999} endDate={2004} />
         </SwiperSlide>
         <SwiperSlide>
           <Period startDate={2015} endDate={2022} />

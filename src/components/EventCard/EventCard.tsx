@@ -1,13 +1,15 @@
 import styles from "./EventCard.module.scss";
 
-export const EventCard = () => {
+type Props = {
+  date: number;
+  desc: string;
+};
+
+export const EventCard = ({ date, desc }: Props) => {
   return (
     <div className={styles.card}>
-      <h1 className={styles.heading}>2015</h1>
-      <p className={styles.text}>
-        13 сентября — частное солнечное затмение, видимое в Южной Африке и части
-        Антарктиды
-      </p>
+      <h1 className={styles.heading}>{date}</h1>
+      <p className={styles.text}>{desc}</p>
     </div>
   );
 };
