@@ -1,4 +1,4 @@
-import styles from "./Period.module.scss";
+import styles from "./PeriodCard.module.scss";
 import { Events } from "../Events/Events";
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
   endDate: number;
 };
 
-export const Period = ({ startDate, endDate }: Props) => {
+export const PeriodCard = ({ startDate, endDate }: Props) => {
   return (
     <div className={styles.period}>
       <h2 className={styles.heading}>{`${startDate} ${endDate}`}</h2>

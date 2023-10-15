@@ -1,57 +1,12 @@
 import "./index.scss";
 import { Heading } from "../../components/Heading/Heading";
-import { Period } from "../../components/Period/Period";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-
-import { Pagination, Navigation } from "swiper/modules";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { Periods } from "../../components/Periods/Periods";
 
 export const Home = () => {
   return (
     <div className="home">
       <Heading />
-      <div className="home__navigation">
-        <div className="swiper-custom-pagination"></div>
-        <div className="home__navigation-buttons">
-          <div className="swiper-button image-swiper-button-prev">
-            <IoIosArrowBack />
-          </div>
-          <div className="swiper-button image-swiper-button-next">
-            <IoIosArrowForward />
-          </div>
-        </div>
-      </div>
-      <Swiper
-        pagination={{
-          el: ".swiper-custom-pagination",
-          type: "fraction",
-        }}
-        navigation={{
-          nextEl: ".image-swiper-button-next",
-          prevEl: ".image-swiper-button-prev",
-          disabledClass: "swiper-button-disabled",
-        }}
-        modules={[Pagination, Navigation]}
-        className="home-swiper"
-      >
-        <SwiperSlide>
-          <Period startDate={1987} endDate={1991} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Period startDate={1992} endDate={1997} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Period startDate={1999} endDate={2004} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Period startDate={2015} endDate={2022} />
-        </SwiperSlide>
-      </Swiper>
+      <Periods />
     </div>
   );
 };
