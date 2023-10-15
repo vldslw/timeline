@@ -47,7 +47,7 @@ export const Events = ({ startDate, endDate }: Props) => {
       >
         {sortedEvents.map((event: any) => (
           <SwiperSlide>
-            <EventCard date={event.date} desc={event.desc} />
+            <EventCard key={event.id} date={event.date} desc={event.desc} />
           </SwiperSlide>
         ))}
       </Swiper>
