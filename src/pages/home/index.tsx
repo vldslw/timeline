@@ -40,13 +40,13 @@ export const Home = () => {
         className="home-swiper"
       >
         <SwiperSlide>
-          <Period />
+          <Period startDate={2000} endDate={2007} />
         </SwiperSlide>
         <SwiperSlide>
-          <Period />
+          <Period startDate={2008} endDate={2014} />
         </SwiperSlide>
         <SwiperSlide>
-          <Period />
+          <Period startDate={2015} endDate={2022} />
         </SwiperSlide>
       </Swiper>
     </div>
