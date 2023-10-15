@@ -15,14 +15,20 @@ export const Home = () => {
   return (
     <div className="home">
       <Heading />
-      <div className="swiper-button image-swiper-button-next">
-        <IoIosArrowForward />
-      </div>
-      <div className="swiper-button image-swiper-button-prev">
-        <IoIosArrowBack />
+      <div className="home__navigation">
+        <div className="swiper-custom-pagination"></div>
+        <div className="home__navigation-buttons">
+          <div className="swiper-button image-swiper-button-prev">
+            <IoIosArrowBack />
+          </div>
+          <div className="swiper-button image-swiper-button-next">
+            <IoIosArrowForward />
+          </div>
+        </div>
       </div>
       <Swiper
         pagination={{
+          el: ".swiper-custom-pagination",
           type: "fraction",
         }}
         navigation={{

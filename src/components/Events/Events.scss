@@ -1,0 +1,27 @@
+.events {
+  padding: 0 160px 104px 80px;
+}
+
+.event-swiper-button {
+  display: flex;
+  position: absolute;
+  bottom: calc(20% - 12px);
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+}
+.event-swiper-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: rgba(66, 86, 122, 1);
+}
+.event-image-swiper-button-prev {
+  left: 5px;
+}
+.event-image-swiper-button-next {
+  right: 5px;
+}
+.event-swiper-button-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
