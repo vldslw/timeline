@@ -51,7 +51,15 @@ export const Carousel = ({ onPeriodChange }) => {
       );
   }, []);
 
-  function moveNext() {
+  function trackerPrev() {
+    if (tracker === 0) {
+      setTracker(5);
+      return;
+    }
+    setTracker(tracker - 1);
+  }
+
+  function movePrev() {
     gsap.to(tl.current, {
       progress: snap(tl.current.progress() + step),
       modifiers: {
@@ -69,15 +77,7 @@ export const Carousel = ({ onPeriodChange }) => {
     }
   }
 
-  function trackerPrev() {
-    if (tracker === 0) {
-      setTracker(5);
-      return;
-    }
-    setTracker(tracker - 1);
-  }
-
-  function movePrev() {
+  function moveNext() {
     gsap.to(tl.current, {
       progress: snap(tl.current.progress() - step),
       modifiers: {
@@ -142,7 +142,7 @@ export const Carousel = ({ onPeriodChange }) => {
           className="carousel-button carousel-button_left"
           onClick={() => {
             trackerPrev();
-            moveNext();
+            movePrev();
           }}
         >
           <IoIosArrowBack />
@@ -152,7 +152,7 @@ export const Carousel = ({ onPeriodChange }) => {
           className="carousel-button carousel-button_right"
           onClick={() => {
             trackerNext();
-            movePrev();
+            moveNext();
           }}
         >
           <IoIosArrowForward />
