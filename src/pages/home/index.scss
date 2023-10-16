@@ -11,6 +11,28 @@
   min-height: 500px;
 }
 
+.period::before {
+  content: "";
+  position: absolute;
+  top: 184px;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(66, 86, 122, 0.1);
+  z-index: -1;
+  overflow: visible;
+}
+
+.period::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100vh;
+  overflow: visible;
+  border: 1px solid rgba(66, 86, 122, 0.1);
+  top: -37%;
+  left: 50%;
+}
+
 .heading {
   position: absolute;
   z-index: -1;
