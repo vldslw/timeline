@@ -31,6 +31,10 @@
   pointer-events: none;
 }
 
+.swiper-pagination {
+  display: none;
+}
+
 @media (max-width: 640px) {
   .events {
     padding: 0 20px 104px 20px;
@@ -41,5 +45,13 @@
   }
   .mySwiper {
     position: static;
+  }
+
+  .event-swiper-button {
+    display: none;
+  }
+
+  .swiper-pagination {
+    display: block;
   }
 }
