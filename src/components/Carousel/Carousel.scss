@@ -53,6 +53,10 @@
     border-radius: 50%;
     cursor: pointer;
     padding: 12px;
+    &:hover {
+      background-color: $white;
+      transition: 0.3s;
+    }
   }
   &__button svg {
     width: 1.5rem;
