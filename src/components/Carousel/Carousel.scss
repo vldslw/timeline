@@ -1,9 +1,8 @@
 .carousel {
-  background: #fff;
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 0;
+  top: -138px;
   left: 50%;
   // min-height: 530px;
 }
@@ -16,7 +15,55 @@
 }
 
 .container_lower {
+  max-width: 120px;
   min-height: 0;
+}
+
+.carousel-buttons {
+  max-width: 120px;
+  min-height: 0;
+  display: grid;
+  grid-template-areas:
+    "pagin pagin"
+    "button-left button-right";
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  position: absolute;
+  left: -640px;
+  bottom: -24px;
+}
+
+.carousel-paginator {
+  grid-area: pagin;
+  margin: 0 0 21px;
+  font-family: "PT Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.carousel-button {
+  display: flex;
+  position: relative;
+  z-index: 10;
+  border: solid 1px rgba(66, 86, 122, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 12px;
+}
+.carousel-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: rgba(66, 86, 122, 1);
+}
+
+.carousel-button_left {
+  grid-area: button-left;
+}
+
+.carousel-button_right {
+  grid-area: button-right;
 }
 
 .wrapper {
@@ -66,6 +113,24 @@
   text-align: center;
   background-color: rgba(244, 245, 249, 1);
   transform: scale(1);
+}
+
+.prev {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.next {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
 }
 
 // .item:hover {

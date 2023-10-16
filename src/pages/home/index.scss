@@ -2,6 +2,8 @@
   margin: 0 160px 0 320px;
   border-left: solid 1px rgba(66, 86, 122, 0.5);
   border-right: solid 1px rgba(66, 86, 122, 0.5);
+  max-width: 1920px;
+  min-height: 100vh;
 }
 
 .period {
@@ -11,7 +13,7 @@
 
 .heading {
   position: absolute;
-  top: 6%;
+  top: -10%;
   left: 0%;
   font: {
     family: "PT Sans";

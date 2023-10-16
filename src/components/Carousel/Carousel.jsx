@@ -3,18 +3,22 @@ import { useLayoutEffect, useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { ReactComponent as Path } from "../../assets/path.svg";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export const Carousel = ({ onPeriodChange }) => {
   gsap.registerPlugin(MotionPathPlugin);
   const tl = useRef();
   const items = useRef();
   const [tracker, setTracker] = useState(0);
+  const [currentPage, setCurrentPage] = useState("01");
+  const [totalPages, setTotalPages] = useState("06");
   let step = 1 / 6;
   let wrapProgress = gsap.utils.wrap(0, 1);
   let snap = gsap.utils.snap(step);
 
   useEffect(() => {
     onPeriodChange(tracker);
+    setCurrentPage(`0${tracker + 1}`);
   }, [tracker]);
 
   useLayoutEffect(() => {
@@ -131,25 +135,28 @@ export const Carousel = ({ onPeriodChange }) => {
           </div>
         </div>
       </div>
-      <div className="container container_lower">
-        <button
+      <div className="carousel-buttons">
+        <p className="carousel-paginator">{`${currentPage}/${totalPages}`}</p>
+        <div
           id="prev"
+          className="carousel-button carousel-button_left"
           onClick={() => {
             trackerPrev();
             moveNext();
           }}
         >
-          Prev
-        </button>
-        <button
+          <IoIosArrowBack />
+        </div>
+        <div
           id="next"
+          className="carousel-button carousel-button_right"
           onClick={() => {
             trackerNext();
             movePrev();
           }}
         >
-          Next
-        </button>
+          <IoIosArrowForward />
+        </div>
       </div>
     </div>
   );
