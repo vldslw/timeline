@@ -15,7 +15,7 @@ export const Periods = () => {
     <div>
       <div className="periods__navigation">
         <div className="swiper-custom-pagination"></div>
-        <div className="home__navigation-buttons">
+        <div className="periods__navigation-buttons">
           <div className="swiper-button image-swiper-button-prev">
             <IoIosArrowBack />
           </div>
