@@ -113,3 +113,29 @@
     transform: translate(-50%, -50%);
   }
 }
+
+@media (max-width: 640px) {
+  .carousel {
+    &__container {
+      display: none;
+    }
+    &__buttons {
+      top: 682px;
+      left: 20px;
+      column-gap: 5px;
+    }
+
+    &__button {
+      padding: 6px;
+    }
+
+    &__button svg {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+
+    &__paginator {
+      margin: 0 0 8px;
+    }
+  }
+}

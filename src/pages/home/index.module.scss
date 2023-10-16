@@ -63,3 +63,71 @@
     color: $fuschia;
   }
 }
+
+@media (max-width: 1480px) {
+  .home {
+    margin: 0 80px 0 160px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .home {
+    margin: 0;
+  }
+}
+
+@media (max-width: 980px) {
+  .home {
+    &__heading {
+      top: 0%;
+    }
+    &__start {
+      font: {
+        size: 120px;
+      }
+      margin-right: 79px;
+    }
+    &__end {
+      font: {
+        size: 120px;
+      }
+      margin-left: 10px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .home {
+    &__period {
+      position: static;
+    }
+    &__heading {
+      position: static;
+      padding: 64px 27px 57px 20px;
+      width: 273px;
+      margin: 0 auto;
+    }
+    &__start {
+      font: {
+        size: 56px;
+      }
+      line-height: 56px;
+      margin: 0 15px 0 0;
+    }
+    &__end {
+      font: {
+        size: 56px;
+      }
+      line-height: 56px;
+      margin: 0 0 0 15px;
+    }
+    &__period {
+      &:before {
+        display: none;
+      }
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

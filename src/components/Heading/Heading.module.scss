@@ -21,3 +21,18 @@
     }
   }
 }
+
+@media (max-width: 640px) {
+  .header {
+    &__bar {
+      display: none;
+    }
+    &__title {
+      max-width: 123px;
+      padding: 59px 0 0 20px;
+      font: {
+        size: 20px;
+      }
+    }
+  }
+}
