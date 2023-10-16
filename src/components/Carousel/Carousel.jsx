@@ -11,7 +11,7 @@ export const Carousel = ({ onPeriodChange }) => {
   const items = useRef();
   const [tracker, setTracker] = useState(0);
   const [currentPage, setCurrentPage] = useState("01");
-  const [totalPages, setTotalPages] = useState("06");
+  const totalPages = "06";
   let step = 1 / 6;
   let wrapProgress = gsap.utils.wrap(0, 1);
   let snap = gsap.utils.snap(step);
@@ -46,6 +46,23 @@ export const Carousel = ({ onPeriodChange }) => {
           transformOrigin: "center",
           duration: 1,
           ease: "none",
+        },
+        0,
+      )
+      .to(
+        tracker,
+        {
+          item: items.current.length,
+          duration: 1,
+          ease: "none",
+          modifiers: {
+            item(value) {
+              return gsap.utils.wrap(
+                0,
+                items.current.length,
+              )(items.current.length - Math.round(value));
+            },
+          },
         },
         0,
       );
@@ -85,6 +102,43 @@ export const Carousel = ({ onPeriodChange }) => {
     });
   }
 
+  function moveWheel(amount) {
+    let progress = tl.current.progress();
+    tl.current.progress(wrapProgress(snap(tl.current.progress() + amount)));
+    tl.current.progress(progress);
+
+    gsap.to(tl.current, {
+      progress: snap(tl.current.progress() + amount),
+      modifiers: {
+        progress: wrapProgress,
+      },
+    });
+  }
+
+  function handleClick(i) {
+    let current = tracker;
+
+    if (i === current) {
+      return;
+    }
+
+    let differ = current - i;
+
+    setTracker(i);
+
+    if (Math.abs(differ) < items.current.length / 2) {
+      moveWheel(differ * step);
+    } else {
+      var amt = items.current.length - Math.abs(differ);
+
+      if (current > i) {
+        moveWheel(amt * -step);
+      } else {
+        moveWheel(amt * step);
+      }
+    }
+  }
+
   return (
     <div className="carousel">
       <div className="carousel__container">
@@ -96,6 +150,7 @@ export const Carousel = ({ onPeriodChange }) => {
             className={`carousel__item ${
               tracker === 0 ? "carousel__item_active" : ""
             }`}
+            onClick={() => handleClick(0)}
           >
             1
           </div>
@@ -105,6 +160,7 @@ export const Carousel = ({ onPeriodChange }) => {
             className={`carousel__item ${
               tracker === 1 ? "carousel__item_active" : ""
             }`}
+            onClick={() => handleClick(1)}
           >
             2
           </div>
@@ -114,6 +170,7 @@ export const Carousel = ({ onPeriodChange }) => {
             className={`carousel__item ${
               tracker === 2 ? "carousel__item_active" : ""
             }`}
+            onClick={() => handleClick(2)}
           >
             3
           </div>
@@ -123,6 +180,7 @@ export const Carousel = ({ onPeriodChange }) => {
             className={`carousel__item ${
               tracker === 3 ? "carousel__item_active" : ""
             }`}
+            onClick={() => handleClick(3)}
           >
             4
           </div>
@@ -132,6 +190,7 @@ export const Carousel = ({ onPeriodChange }) => {
             className={`carousel__item ${
               tracker === 4 ? "carousel__item_active" : ""
             }`}
+            onClick={() => handleClick(4)}
           >
             5
           </div>
@@ -141,6 +200,7 @@ export const Carousel = ({ onPeriodChange }) => {
             className={`carousel__item ${
               tracker === 5 ? "carousel__item_active" : ""
             }`}
+            onClick={() => handleClick(5)}
           >
             6
           </div>

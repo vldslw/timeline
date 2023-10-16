@@ -105,6 +105,24 @@
       background-color: $background;
       background-image: none;
     }
+    &:hover {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $black-blue;
+      border: 1px solid $black-blue-dark;
+      font: {
+        family: "PT Sans";
+        size: 20px;
+        style: normal;
+        weight: 400;
+      }
+      line-height: 30px;
+      text-align: center;
+      background-color: $background;
+      background-image: none;
+    }
   }
   &__path {
     height: 530px;
