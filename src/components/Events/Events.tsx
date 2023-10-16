@@ -2,10 +2,11 @@ import "./Events.scss";
 import { useState, useEffect } from "react";
 import { EventCard } from "../EventCard/EventCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { eventsList } from "../../utils/eventsList";
 
 type Props = {
@@ -36,14 +37,34 @@ export const Events = ({ startDate, endDate }: Props) => {
         <IoIosArrowBack />
       </div>
       <Swiper
-        spaceBetween={80}
-        slidesPerView={3}
-        navigation={{
-          nextEl: ".event-image-swiper-button-next",
-          prevEl: ".event-image-swiper-button-prev",
-          disabledClass: "event-swiper-button-disabled",
+        spaceBetween={25}
+        slidesPerView={2}
+        modules={[Pagination, Navigation]}
+        pagination={{
+          clickable: true,
         }}
-        modules={[Navigation]}
+        navigation={false}
+        className="mySwiper"
+        breakpoints={{
+          980: {
+            spaceBetween: 80,
+            slidesPerView: 3,
+            navigation: {
+              nextEl: ".event-image-swiper-button-next",
+              prevEl: ".event-image-swiper-button-prev",
+              disabledClass: "event-swiper-button-disabled",
+            },
+            pagination: false,
+          },
+          640: {
+            navigation: {
+              nextEl: ".event-image-swiper-button-next",
+              prevEl: ".event-image-swiper-button-prev",
+              disabledClass: "event-swiper-button-disabled",
+            },
+            pagination: false,
+          },
+        }}
       >
         {sortedEvents.map((event: any) => (
           <SwiperSlide>

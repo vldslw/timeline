@@ -30,3 +30,16 @@
   opacity: 0;
   pointer-events: none;
 }
+
+@media (max-width: 640px) {
+  .events {
+    padding: 0 20px 104px 20px;
+    --swiper-pagination-color: rgba(66, 86, 122, 1);
+    --swiper-pagination-bullet-size: 6px;
+    --swiper-pagination-bottom: 10px;
+    --swiper-pagination-top: auto;
+  }
+  .mySwiper {
+    position: static;
+  }
+}
