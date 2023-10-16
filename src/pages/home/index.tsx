@@ -14,13 +14,13 @@ export const Home = () => {
     } else if (tracker === 1) {
       setPeriod({ startDate: 1992, endDate: 1997 });
     } else if (tracker === 2) {
-      setPeriod({ startDate: 1999, endDate: 2004 });
+      setPeriod({ startDate: 1998, endDate: 2004 });
     } else if (tracker === 3) {
-      setPeriod({ startDate: 2015, endDate: 2022 });
+      setPeriod({ startDate: 2005, endDate: 2008 });
     } else if (tracker === 4) {
-      setPeriod({ startDate: 1987, endDate: 1991 });
+      setPeriod({ startDate: 2009, endDate: 2014 });
     } else if (tracker === 5) {
-      setPeriod({ startDate: 1987, endDate: 1991 });
+      setPeriod({ startDate: 2015, endDate: 2022 });
     }
   }
 
