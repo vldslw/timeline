@@ -1,0 +1,65 @@
+@import "src/app/styles/variables";
+
+.home {
+  margin: 0 160px 0 320px;
+  border-left: solid 1px $black-blue-light;
+  border-right: solid 1px $black-blue-light;
+  max-width: 1920px;
+  min-height: 100vh;
+  &__period {
+    position: relative;
+    min-height: 500px;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 184px;
+      width: 100%;
+      height: 1px;
+      background-color: $black-blue-light;
+      z-index: -1;
+      overflow: visible;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 100vh;
+      background-color: $black-blue-light;
+      overflow: visible;
+      top: -37%;
+      left: 50%;
+    }
+  }
+  &__heading {
+    position: absolute;
+    z-index: -1;
+    top: -9%;
+    left: -1%;
+    line-height: 160px;
+    letter-spacing: -4px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  &__start {
+    font: {
+      family: "PT Sans";
+      size: 200px;
+      style: normal;
+      weight: 700;
+    }
+    margin-right: 79px;
+    color: $iris;
+  }
+  &__end {
+    font: {
+      family: "PT Sans";
+      size: 200px;
+      style: normal;
+      weight: 700;
+    }
+    margin-left: 10px;
+    color: $fuschia;
+  }
+}

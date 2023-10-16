@@ -1,7 +1,6 @@
-import "./index.scss";
+import styles from "./index.module.scss";
 import { useState } from "react";
 import { Heading } from "../../components/Heading/Heading";
-// import { Periods } from "../../components/Periods/Periods";
 import { Carousel } from "../../components/Carousel/Carousel";
 import { Events } from "../../components/Events/Events";
 
@@ -26,11 +25,14 @@ export const Home = () => {
   }
 
   return (
-    <div className="home">
+    <div className={styles.home}>
       <Heading />
-      <div className="period">
+      <div className={styles.home__period}>
         <Carousel onPeriodChange={handlePeriodChange} />
-        <h2 className="heading">{`${period.startDate} ${period.endDate}`}</h2>
+        <div className={styles.home__heading}>
+          <h2 className={styles.home__start}>{period.startDate}</h2>
+          <h2 className={styles.home__end}>{period.endDate}</h2>
+        </div>
         <Events startDate={period.startDate} endDate={period.endDate} />
       </div>
     </div>

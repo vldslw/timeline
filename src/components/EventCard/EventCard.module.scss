@@ -1,0 +1,24 @@
+@import "src/app/styles/variables";
+
+.event {
+  &__heading {
+    color: $blue;
+    margin: 19px 0 10px;
+    font-family: "Bebas Neue";
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    color: $black-blue;
+    margin: 0;
+    font-family: "PT Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+  }
+}

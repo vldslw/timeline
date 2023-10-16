@@ -1,27 +1,32 @@
+@import "src/app/styles/variables";
+
 .events {
-  padding: 700px 160px 104px 80px;
+  padding: 526px 160px 104px 80px;
 }
 
 .event-swiper-button {
+  padding: 8px;
   display: flex;
   position: absolute;
-  bottom: calc(20% - 12px);
-  border-radius: 50%;
+  bottom: calc(22% + 8px);
+  border-radius: 100%;
   z-index: 10;
   cursor: pointer;
+  background-color: $white;
+  box-shadow: 0px 2px 8px $blue-shadow;
 }
 .event-swiper-button svg {
   width: 1.5rem;
   height: 1.5rem;
-  color: rgba(66, 86, 122, 1);
+  color: $blue;
 }
 .event-image-swiper-button-prev {
-  left: 2%;
+  left: 22px;
 }
 .event-image-swiper-button-next {
-  right: 5%;
+  right: 38px;
 }
 .event-swiper-button-disabled {
-  opacity: 0.5;
+  opacity: 0;
   pointer-events: none;
 }

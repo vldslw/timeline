@@ -1,11 +1,23 @@
-.heading {
-  font: {
-    family: "PT Sans";
-    size: 56px;
-    style: normal;
-    weight: 700;
-  }
-  max-width: 353px;
-  padding: 170px 0 0 80px;
+@import "src/app/styles/variables";
+
+.header {
   margin: 0;
+  display: flex;
+  &__bar {
+    background: linear-gradient($blue, $fuschia);
+    margin: 177px 0 0;
+    width: 5px;
+    height: 120px;
+  }
+  &__title {
+    max-width: 353px;
+    margin: 0;
+    padding: 170px 0 0 80px;
+    color: $black-blue;
+    font: {
+      family: "PT Sans";
+      size: 56px;
+      weight: 700;
+    }
+  }
 }
