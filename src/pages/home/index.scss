@@ -3,3 +3,24 @@
   border-left: solid 1px rgba(66, 86, 122, 0.5);
   border-right: solid 1px rgba(66, 86, 122, 0.5);
 }
+
+.period {
+  position: relative;
+  min-height: 500px;
+}
+
+.heading {
+  position: absolute;
+  top: 6%;
+  left: 0%;
+  font: {
+    family: "PT Sans";
+    size: 200px;
+    style: normal;
+    weight: 700;
+  }
+  line-height: 160px;
+  letter-spacing: -4px;
+  text-align: center;
+  width: 100%;
+}

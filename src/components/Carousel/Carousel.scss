@@ -2,6 +2,9 @@
   background: #fff;
   margin: 0;
   padding: 0;
+  position: absolute;
+  top: 0;
+  left: 50%;
   // min-height: 530px;
 }
 
@@ -21,7 +24,7 @@
   position: relative;
 }
 
-svg {
+.circlePath {
   height: 530px;
   overflow: visible;
   width: 530px;

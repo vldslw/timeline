@@ -28,9 +28,11 @@ export const Home = () => {
   return (
     <div className="home">
       <Heading />
-      <Carousel onPeriodChange={handlePeriodChange} />
-      <Events startDate={period.startDate} endDate={period.endDate} />
-      {/* <Periods /> */}
+      <div className="period">
+        <Carousel onPeriodChange={handlePeriodChange} />
+        <h2 className="heading">{`${period.startDate} ${period.endDate}`}</h2>
+        <Events startDate={period.startDate} endDate={period.endDate} />
+      </div>
     </div>
   );
 };
