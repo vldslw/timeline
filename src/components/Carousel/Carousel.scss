@@ -29,8 +29,8 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 20px;
   position: absolute;
-  left: -640px;
-  bottom: -24px;
+  right: 547px;
+  bottom: -136px;
 }
 
 .carousel-paginator {
@@ -90,7 +90,7 @@
   color: rgba(244, 245, 249, 1);
   text-align: center;
   line-height: 6px;
-  font-size: 6px;
+  font-size: 0;
   z-index: 2;
   border-radius: 100%;
   cursor: pointer;
