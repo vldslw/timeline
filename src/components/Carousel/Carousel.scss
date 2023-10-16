@@ -29,8 +29,9 @@ svg {
 }
 
 .item {
-  width: 56px;
-  height: 56px;
+  box-sizing: border-box;
+  width: 6px;
+  height: 6px;
   color: rgba(66, 86, 122, 1);
   background-color: rgba(66, 86, 122, 1);
   text-align: center;
@@ -42,11 +43,10 @@ svg {
 }
 
 .item_active {
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 56px;
-  height: 56px;
   color: #42567a;
   border: 1px solid rgba(48, 62, 88, 0.5);
   font: {
@@ -58,23 +58,24 @@ svg {
   line-height: 30px;
   text-align: center;
   background-color: rgba(244, 245, 249, 1);
+  transform: scale(1);
 }
 
-.item:hover {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 56px;
-  height: 56px;
-  color: #42567a;
-  border: 1px solid rgba(48, 62, 88, 0.5);
-  font: {
-    family: "PT Sans";
-    size: 20px;
-    style: normal;
-    weight: 400;
-  }
-  line-height: 30px;
-  text-align: center;
-  background-color: rgba(244, 245, 249, 1);
-}
+// .item:hover {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 56px;
+//   height: 56px;
+//   color: #42567a;
+//   border: 1px solid rgba(48, 62, 88, 0.5);
+//   font: {
+//     family: "PT Sans";
+//     size: 20px;
+//     style: normal;
+//     weight: 400;
+//   }
+//   line-height: 30px;
+//   text-align: center;
+//   background-color: rgba(244, 245, 249, 1);
+// }
