@@ -54,9 +54,9 @@ export const Carousel = ({ onPeriodChange }) => {
   function trackerPrev() {
     if (tracker === 0) {
       setTracker(5);
-      return;
+    } else {
+      setTracker(tracker - 1);
     }
-    setTracker(tracker - 1);
   }
 
   function movePrev() {
@@ -71,7 +71,6 @@ export const Carousel = ({ onPeriodChange }) => {
   function trackerNext() {
     if (tracker === 5) {
       setTracker(0);
-      return;
     } else {
       setTracker(tracker + 1);
     }
