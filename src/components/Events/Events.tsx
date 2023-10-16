@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { eventsList } from "../../utils/eventsList";
+import useResize from "../../utils/useResize";
 
 type Props = {
   startDate: number;
@@ -16,6 +17,21 @@ type Props = {
 
 export const Events = ({ startDate, endDate }: Props) => {
   const [sortedEvents, setSortedEvents] = useState([]);
+  const [sizeMobile, setSizeMobile] = useState(false);
+  const size = useResize();
+  let windowWidth = size[0];
+
+  function handleMobileSize() {
+    if (windowWidth <= 640) {
+      setSizeMobile(true);
+    } else {
+      setSizeMobile(false);
+    }
+  }
+
+  useEffect(() => {
+    handleMobileSize();
+  }, [windowWidth]);
 
   useEffect(() => {
     const events: any = [];
@@ -30,12 +46,16 @@ export const Events = ({ startDate, endDate }: Props) => {
 
   return (
     <div className="events">
-      <div className="event-swiper-button event-image-swiper-button-next">
-        <IoIosArrowForward />
-      </div>
-      <div className="event-swiper-button event-image-swiper-button-prev">
-        <IoIosArrowBack />
-      </div>
+      {!sizeMobile && (
+        <div className="event-swiper-button event-image-swiper-button-next">
+          <IoIosArrowForward />
+        </div>
+      )}
+      {!sizeMobile && (
+        <div className="event-swiper-button event-image-swiper-button-prev">
+          <IoIosArrowBack />
+        </div>
+      )}
       <Swiper
         spaceBetween={25}
         slidesPerView={2}
