@@ -25,7 +25,7 @@ export const Events = ({ startDate, endDate }: Props) => {
     });
     console.log(events);
     setSortedEvents(events);
-  }, []);
+  }, [startDate, endDate]);
 
   return (
     <div className="events">

@@ -2,14 +2,18 @@
   background: #fff;
   margin: 0;
   padding: 0;
-  min-height: 530px;
+  // min-height: 530px;
 }
 
 .container {
   position: relative;
   margin: auto;
   max-width: 530px;
-  min-height: 530px;
+  min-height: 300px;
+}
+
+.container_lower {
+  min-height: 0;
 }
 
 .wrapper {

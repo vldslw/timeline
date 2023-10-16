@@ -1,10 +1,10 @@
 import "./Carousel.scss";
-import { useLayoutEffect, useState, useRef } from "react";
+import { useLayoutEffect, useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { ReactComponent as Path } from "../../assets/path.svg";
 
-export const Carousel = () => {
+export const Carousel = ({ onPeriodChange }) => {
   gsap.registerPlugin(MotionPathPlugin);
   const tl = useRef();
   const items = useRef();
@@ -12,6 +12,10 @@ export const Carousel = () => {
   let step = 1 / 6;
   let wrapProgress = gsap.utils.wrap(0, 1);
   let snap = gsap.utils.snap(step);
+
+  useEffect(() => {
+    onPeriodChange(tracker);
+  }, [tracker]);
 
   useLayoutEffect(() => {
     items.current = gsap.utils.toArray(".item").reverse();
@@ -127,7 +131,7 @@ export const Carousel = () => {
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container container_lower">
         <button
           id="prev"
           onClick={() => {
