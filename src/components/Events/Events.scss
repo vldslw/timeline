@@ -1,3 +1,5 @@
+@import "src/app/styles/variables";
+
 .events {
   padding: 526px 160px 104px 80px;
 }
@@ -10,13 +12,13 @@
   border-radius: 100%;
   z-index: 10;
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 1);
-  box-shadow: 0px 2px 8px rgba(56, 119, 238, 0.1);
+  background-color: $white;
+  box-shadow: 0px 2px 8px $blue-shadow;
 }
 .event-swiper-button svg {
   width: 1.5rem;
   height: 1.5rem;
-  color: rgba(56, 119, 238, 1);
+  color: $blue;
 }
 .event-image-swiper-button-prev {
   left: 22px;
