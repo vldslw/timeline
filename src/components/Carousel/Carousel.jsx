@@ -28,7 +28,7 @@ export const Carousel = ({ onPeriodChange }) => {
         path: "#circlePath",
         align: "#circlePath",
         alignOrigin: [0.5, 0.5],
-        end: (i) => (i + 3) / 2 / items.current.length,
+        end: (i) => (i + 2) / 2 / items.current.length + 0.124,
       },
     });
     tl.current = gsap

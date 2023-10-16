@@ -2,8 +2,8 @@
   margin: 0;
   padding: 0;
   position: absolute;
-  top: -138px;
-  left: 50%;
+  top: -284px;
+  left: 48%;
   // min-height: 530px;
 }
 
@@ -84,16 +84,19 @@
 
 .item {
   box-sizing: border-box;
-  width: 6px;
-  height: 6px;
-  color: rgba(66, 86, 122, 1);
-  background-color: rgba(66, 86, 122, 1);
+  width: 56px;
+  height: 56px;
+  color: rgba(244, 245, 249, 1);
   text-align: center;
   line-height: 6px;
   font-size: 6px;
   z-index: 2;
   border-radius: 100%;
   cursor: pointer;
+  overflow: visible;
+  background-image: url(../../assets/dot.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .item_active {
@@ -112,7 +115,7 @@
   line-height: 30px;
   text-align: center;
   background-color: rgba(244, 245, 249, 1);
-  transform: scale(1);
+  background-image: none;
 }
 
 .prev {
