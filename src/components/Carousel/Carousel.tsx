@@ -15,8 +15,8 @@ export const Carousel = ({ onPeriodChange }: CarouselProps) => {
   const items = useRef<HTMLElement[]>([]);
   const [tracker, setTracker] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState("01");
-  const totalPages = "06";
-  let step: number = 1 / 6;
+  const totalPages = `0${items.current.length}`;
+  let step: number = 1 / items.current.length;
   let wrapProgress: (value: number) => number = gsap.utils.wrap(0, 1);
   let snap: (value: number) => number = gsap.utils.snap(step);
 
@@ -239,13 +239,13 @@ export const Carousel = ({ onPeriodChange }: CarouselProps) => {
         <button
           id="next"
           className={`carousel__button carousel__button_right ${
-            tracker === 5 && "carousel__button_disabled"
+            tracker === items.current.length - 1 && "carousel__button_disabled"
           }`}
           onClick={() => {
             trackerNext();
             moveNext();
           }}
-          disabled={tracker === 5}
+          disabled={tracker === items.current.length - 1}
         >
           <IoIosArrowForward />
         </button>
