@@ -15,10 +15,12 @@ type Props = {
 };
 
 export const Events = ({ startDate, endDate }: Props) => {
-  const [sortedEvents, setSortedEvents] = useState([]);
+  const [sortedEvents, setSortedEvents] = useState<
+    { id: number; date: number; desc: string }[]
+  >([]);
 
   useEffect(() => {
-    const events: any = [];
+    const events: { id: number; date: number; desc: string }[] = [];
     eventsList.filter((event) => {
       if (event.date >= startDate && event.date <= endDate) {
         events.push(event);
@@ -55,7 +57,7 @@ export const Events = ({ startDate, endDate }: Props) => {
           },
         }}
       >
-        {sortedEvents.map((event: any) => (
+        {sortedEvents.map((event) => (
           <SwiperSlide key={event.id}>
             <EventCard key={event.id} date={event.date} desc={event.desc} />
           </SwiperSlide>
