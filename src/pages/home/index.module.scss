@@ -6,29 +6,31 @@
   border-right: solid 1px $black-blue-light;
   max-width: 1920px;
   min-height: 100vh;
+  background-image: url("../../assets/lines.svg");
+  background-position: 50% 4%;
   &__period {
     position: relative;
     min-height: 500px;
-    &:before {
-      content: "";
-      position: absolute;
-      top: 184px;
-      width: 100%;
-      height: 1px;
-      background-color: $black-blue-light;
-      z-index: -1;
-      overflow: visible;
-    }
-    &:after {
-      content: "";
-      position: absolute;
-      width: 1px;
-      height: 100vh;
-      background-color: $black-blue-light;
-      overflow: visible;
-      top: -37%;
-      left: 50%;
-    }
+    // &:before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 184px;
+    //   width: 100%;
+    //   height: 1px;
+    //   background-color: $black-blue-light;
+    //   z-index: -1;
+    //   overflow: visible;
+    // }
+    // &:after {
+    //   content: "";
+    //   position: absolute;
+    //   width: 1px;
+    //   height: 100vh;
+    //   background-color: $black-blue-light;
+    //   overflow: visible;
+    //   top: -37%;
+    //   left: 50%;
+    // }
   }
   &__heading {
     position: absolute;
@@ -98,6 +100,7 @@
 
 @media (max-width: 640px) {
   .home {
+    background-image: none;
     &__period {
       position: static;
     }
@@ -121,13 +124,13 @@
       line-height: 56px;
       margin: 0 0 0 15px;
     }
-    &__period {
-      &:before {
-        display: none;
-      }
-      &:after {
-        display: none;
-      }
-    }
+    // &__period {
+    //   &:before {
+    //     display: none;
+    //   }
+    //   &:after {
+    //     display: none;
+    //   }
+    // }
   }
 }

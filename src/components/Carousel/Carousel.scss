@@ -11,8 +11,6 @@
     top: 0%;
     left: 48%;
     margin: auto;
-    max-width: 530px;
-    min-height: 300px;
   }
 
   &__wrapper {
@@ -21,7 +19,6 @@
   }
 
   &__buttons {
-    // margin: 600px 0 0 80px;
     max-width: 120px;
     min-height: 0;
     display: grid;
