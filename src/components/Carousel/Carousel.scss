@@ -46,6 +46,7 @@
   }
 
   &__button {
+    background-color: $background;
     display: flex;
     position: relative;
     z-index: 10;
@@ -56,6 +57,13 @@
     &:hover {
       background-color: $white;
       transition: 0.3s;
+    }
+    &_disabled {
+      opacity: 0.5;
+      cursor: default;
+      &:hover {
+        background-color: $background;
+      }
     }
   }
   &__button svg {

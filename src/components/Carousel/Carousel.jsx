@@ -208,26 +208,34 @@ export const Carousel = ({ onPeriodChange }) => {
       </div>
       <div className="carousel__buttons">
         <p className="carousel__paginator">{`${currentPage}/${totalPages}`}</p>
-        <div
+        <button
           id="prev"
-          className="carousel__button carousel__button_left"
+          className={`carousel__button carousel__button_left ${
+            tracker === 0 && "carousel__button_disabled"
+          }`}
+          // className="carousel__button carousel__button_left"
           onClick={() => {
             trackerPrev();
             movePrev();
           }}
+          disabled={tracker === 0}
         >
           <IoIosArrowBack />
-        </div>
-        <div
+        </button>
+        <button
           id="next"
-          className="carousel__button carousel__button_right"
+          className={`carousel__button carousel__button_right ${
+            tracker === 5 && "carousel__button_disabled"
+          }`}
+          // className="carousel__button carousel__button_right"
           onClick={() => {
             trackerNext();
             moveNext();
           }}
+          disabled={tracker === 5}
         >
           <IoIosArrowForward />
-        </div>
+        </button>
       </div>
     </div>
   );
