@@ -5,16 +5,20 @@ import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { ReactComponent as Path } from "../../assets/path.svg";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-export const Carousel = ({ onPeriodChange }) => {
+type CarouselProps = {
+  onPeriodChange: (period: number) => void;
+};
+
+export const Carousel = ({ onPeriodChange }: CarouselProps) => {
   gsap.registerPlugin(MotionPathPlugin);
-  const tl = useRef();
-  const items = useRef();
-  const [tracker, setTracker] = useState(0);
+  const tl = useRef<gsap.core.Timeline>();
+  const items = useRef<HTMLElement[]>([]);
+  const [tracker, setTracker] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState("01");
   const totalPages = "06";
-  let step = 1 / 6;
-  let wrapProgress = gsap.utils.wrap(0, 1);
-  let snap = gsap.utils.snap(step);
+  let step: number = 1 / 6;
+  let wrapProgress: (value: number) => number = gsap.utils.wrap(0, 1);
+  let snap: (value: number) => number = gsap.utils.snap(step);
 
   useEffect(() => {
     onPeriodChange(tracker);
@@ -22,14 +26,22 @@ export const Carousel = ({ onPeriodChange }) => {
   }, [tracker]);
 
   useLayoutEffect(() => {
-    items.current = gsap.utils.toArray(".carousel__item").reverse();
-    gsap.set(items.current, {
-      motionPath: {
-        path: "#circlePath",
-        align: "#circlePath",
-        alignOrigin: [0.5, 0.5],
-        end: (i) => (i + 2) / 2 / items.current.length + 0.124,
-      },
+    items.current = gsap.utils
+      .toArray(".carousel__item")
+      .reverse() as HTMLElement[];
+    let numCallbackRuns = 0;
+    items.current.forEach((item) => {
+      let endPosition =
+        (numCallbackRuns + 2) / 2 / items.current.length + 0.124;
+      numCallbackRuns++;
+      gsap.set(item, {
+        motionPath: {
+          path: "#circlePath",
+          align: "#circlePath",
+          alignOrigin: [0.5, 0.5],
+          end: endPosition,
+        },
+      });
     });
     tl.current = gsap
       .timeline({ paused: true })
@@ -50,7 +62,7 @@ export const Carousel = ({ onPeriodChange }) => {
         0,
       )
       .to(
-        tracker,
+        gsap.getById(tracker),
         {
           item: items.current.length,
           duration: 1,
@@ -77,6 +89,7 @@ export const Carousel = ({ onPeriodChange }) => {
   }
 
   function movePrev() {
+    if (!tl.current) return;
     gsap.to(tl.current, {
       progress: snap(tl.current.progress() + step),
       modifiers: {
@@ -94,6 +107,7 @@ export const Carousel = ({ onPeriodChange }) => {
   }
 
   function moveNext() {
+    if (!tl.current) return;
     gsap.to(tl.current, {
       progress: snap(tl.current.progress() - step),
       modifiers: {
@@ -102,7 +116,8 @@ export const Carousel = ({ onPeriodChange }) => {
     });
   }
 
-  function moveWheel(amount) {
+  function moveWheel(amount: number) {
+    if (!tl.current) return;
     let progress = tl.current.progress();
     tl.current.progress(wrapProgress(snap(tl.current.progress() + amount)));
     tl.current.progress(progress);
@@ -115,7 +130,7 @@ export const Carousel = ({ onPeriodChange }) => {
     });
   }
 
-  function handleClick(i) {
+  function handleClick(i: number) {
     let current = tracker;
 
     if (i === current) {
@@ -213,7 +228,6 @@ export const Carousel = ({ onPeriodChange }) => {
           className={`carousel__button carousel__button_left ${
             tracker === 0 && "carousel__button_disabled"
           }`}
-          // className="carousel__button carousel__button_left"
           onClick={() => {
             trackerPrev();
             movePrev();
@@ -227,7 +241,6 @@ export const Carousel = ({ onPeriodChange }) => {
           className={`carousel__button carousel__button_right ${
             tracker === 5 && "carousel__button_disabled"
           }`}
-          // className="carousel__button carousel__button_right"
           onClick={() => {
             trackerNext();
             moveNext();
