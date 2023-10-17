@@ -24,7 +24,6 @@ export const Events = ({ startDate, endDate }: Props) => {
         events.push(event);
       }
     });
-    console.log(events);
     setSortedEvents(events);
   }, [startDate, endDate]);
 
@@ -57,7 +56,7 @@ export const Events = ({ startDate, endDate }: Props) => {
         }}
       >
         {sortedEvents.map((event: any) => (
-          <SwiperSlide>
+          <SwiperSlide key={event.id}>
             <EventCard key={event.id} date={event.date} desc={event.desc} />
           </SwiperSlide>
         ))}

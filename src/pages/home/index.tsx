@@ -8,7 +8,6 @@ export const Home = () => {
   const [period, setPeriod] = useState({ startDate: 1987, endDate: 1991 });
 
   function handlePeriodChange(tracker: number) {
-    console.log(tracker);
     if (tracker === 0) {
       setPeriod({ startDate: 1987, endDate: 1991 });
     } else if (tracker === 1) {
