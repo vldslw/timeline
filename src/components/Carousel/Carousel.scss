@@ -1,0 +1,168 @@
+@import "src/app/styles/variables";
+
+.carousel {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -284px;
+  left: 0%;
+  &__container {
+    position: absolute;
+    top: 0%;
+    left: 48%;
+    margin: auto;
+  }
+
+  &__wrapper {
+    margin-top: 300px;
+    position: relative;
+  }
+
+  &__buttons {
+    max-width: 120px;
+    min-height: 0;
+    display: grid;
+    grid-template-areas:
+      "pagin pagin"
+      "button-left button-right";
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    position: absolute;
+    top: 683px;
+    left: 80px;
+  }
+
+  &__paginator {
+    grid-area: pagin;
+    margin: 0 0 21px;
+    font-family: "PT Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  &__button {
+    background-color: $background;
+    display: flex;
+    position: relative;
+    z-index: 10;
+    border: solid 1px $black-blue-medium;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 12px;
+    &:hover {
+      background-color: $white;
+      transition: 0.3s;
+    }
+    &_disabled {
+      opacity: 0.5;
+      cursor: default;
+      &:hover {
+        background-color: $background;
+      }
+    }
+  }
+  &__button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: $black-blue;
+  }
+
+  &__button_left {
+    grid-area: button-left;
+  }
+
+  &__button_right {
+    grid-area: button-right;
+  }
+
+  &__item {
+    position: relative;
+    box-sizing: border-box;
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    line-height: 6px;
+    font-size: 0;
+    z-index: 2;
+    border-radius: 100%;
+    cursor: pointer;
+    overflow: visible;
+    background-image: url(../../assets/dot.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    &_active {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $black-blue;
+      border: 1px solid $black-blue-dark;
+      font: {
+        family: "PT Sans";
+        size: 20px;
+        style: normal;
+        weight: 400;
+      }
+      line-height: 30px;
+      text-align: center;
+      background-color: $background;
+      background-image: none;
+    }
+    &:hover {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $black-blue;
+      border: 1px solid $black-blue-dark;
+      font: {
+        family: "PT Sans";
+        size: 20px;
+        style: normal;
+        weight: 400;
+      }
+      line-height: 30px;
+      text-align: center;
+      background-color: $background;
+      background-image: none;
+    }
+  }
+  &__path {
+    height: 530px;
+    overflow: visible;
+    width: 530px;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel {
+    &__container {
+      display: none;
+    }
+    &__buttons {
+      top: 682px;
+      left: 20px;
+      column-gap: 5px;
+    }
+
+    &__button {
+      padding: 6px;
+    }
+
+    &__button svg {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+
+    &__paginator {
+      margin: 0 0 8px;
+    }
+  }
+}

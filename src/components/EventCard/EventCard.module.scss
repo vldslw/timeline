@@ -1,0 +1,48 @@
+@import "src/app/styles/variables";
+
+.event {
+  &__heading {
+    color: $blue;
+    margin: 19px 0 10px;
+    font-family: "Bebas Neue";
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    color: $black-blue;
+    margin: 0;
+    font-family: "PT Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 980px) {
+  .event {
+    &__text {
+      font-size: 14px;
+      line-height: 145%;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .event {
+    min-height: 248px;
+    &__heading {
+      font-size: 16px;
+      margin: 20px 0 15px;
+    }
+
+    &__text {
+      font-size: 14px;
+      line-height: 145%;
+    }
+  }
+}

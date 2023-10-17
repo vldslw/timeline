@@ -1,0 +1,57 @@
+@import "src/app/styles/variables";
+
+.events {
+  padding: 526px 160px 104px 80px;
+}
+
+.event-swiper-button {
+  padding: 8px;
+  display: flex;
+  position: absolute;
+  bottom: calc(22% + 8px);
+  border-radius: 100%;
+  z-index: 10;
+  cursor: pointer;
+  background-color: $white;
+  box-shadow: 0px 2px 8px $blue-shadow;
+}
+.event-swiper-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: $blue;
+}
+.event-image-swiper-button-prev {
+  left: 22px;
+}
+.event-image-swiper-button-next {
+  right: 38px;
+}
+.event-swiper-button-disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.swiper-pagination {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .events {
+    padding: 0 20px 104px 20px;
+    --swiper-pagination-color: rgba(66, 86, 122, 1);
+    --swiper-pagination-bullet-size: 6px;
+    --swiper-pagination-bottom: 10px;
+    --swiper-pagination-top: auto;
+  }
+  .mySwiper {
+    position: static;
+  }
+
+  .event-swiper-button {
+    display: none;
+  }
+
+  .swiper-pagination {
+    display: block;
+  }
+}

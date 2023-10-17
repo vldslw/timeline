@@ -1,0 +1,38 @@
+@import "src/app/styles/variables";
+
+.header {
+  margin: 0;
+  display: flex;
+  &__bar {
+    background: linear-gradient($blue, $fuschia);
+    margin: 177px 0 0;
+    width: 5px;
+    height: 120px;
+  }
+  &__title {
+    max-width: 353px;
+    margin: 0;
+    padding: 170px 0 0 80px;
+    color: $black-blue;
+    font: {
+      family: "PT Sans";
+      size: 56px;
+      weight: 700;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    &__bar {
+      display: none;
+    }
+    &__title {
+      max-width: 123px;
+      padding: 59px 0 0 20px;
+      font: {
+        size: 20px;
+      }
+    }
+  }
+}
